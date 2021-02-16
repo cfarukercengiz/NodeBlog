@@ -1,0 +1,60 @@
+<!-- Inside Hero Section -->
+<section class="page-image page-image-blog md-padding">
+    <h1 class="text-white text-center">BLOG</h1>
+</section>
+
+<!-- Blog Post Section -->
+<section id="blog" class="md-padding">
+    <div class="container">
+        <div class="row">
+            <main id="main" class="col-md-8">
+                <div class="blog">
+                    <div class="blog-img">
+                        <img src="{{post.post_image}}" class="img-fluid">
+                    </div>
+                    <div class="blog-content">
+                        <ul class="blog-meta">
+                            <li><i class="fas fa-user"></i>{{post.author.username}}</li>
+                            <li><i class="fas fa-clock"></i>{{generateDate post.date 'MMM DD YYYY'}}</li>
+                            <li><i class="fas fa-comments"></i>{{post.comments.length}}</li>
+                        </ul>
+                        <h3>{{post.title}}</h3>
+                        <p>{{post.content}}</p>
+                    </div>
+                    <!-- Blog Comments -->
+                    <div class="blog-comments">
+                        <h3>({{post.comments.length}}) Comments</h3>
+                        <!-- Comment -->
+                        {{#each post.comments}}
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading">{{cmtName}}<span class="time">{{generateDate cmtDate 'MMM DD YYYY'}}</span></h4>
+                                <p>{{cmtContent}}</p>
+                            </div>
+                        </div>
+                        {{/each}}
+                        <!-- Comment END -->
+                    </div>
+                    <!-- Blog Comments END -->
+
+                    <!-- Reply Form -->
+                    <div class="reply-form">
+                        <h3>Leave A Comment</h3>
+                        <form action="/posts/{{post._id}}/comments" method="POST">
+                            <input class="form-control mb-4" name="cmtName" type="text" placeholder="Name">
+                            <input class="form-control mb-4" name="cmtEmail" type="email" placeholder="Email">
+                            <textarea class="form-control mb-4" name="cmtContent" row="5"
+                                placeholder="Add Your Commment"></textarea>
+
+                            <button type="submit" class="hero-btn">Send</button>
+                        </form>
+                    </div>
+                    <!-- Reply Form END -->
+                </div>
+            </main>
+            <!-- Sidebar -->
+            {{> blog-sidebar}}
+            <!-- Sidebar END -->
+        </div>
+    </div>
+</section>

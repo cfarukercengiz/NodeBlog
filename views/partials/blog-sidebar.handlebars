@@ -1,0 +1,40 @@
+<aside id="aside" class="col-md-4">
+    <!-- Search Widget -->
+    <div class="widget">
+        <div class="widget-search">
+            <form action="/posts/search" method="GET">
+                <input type="text" class="search-input form-control" name="look" placeholder="Search">
+                <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <!-- Search Widget END -->
+
+    <!-- Category Widget -->
+    <div class="widget">
+        <h3 class="mb-3">Categories</h3>
+        <div class="widget-category">
+            {{#each categories}}
+            <a href="/posts/category/{{_id}}">{{name}}<span>({{num_of_posts}})</span></a>
+            {{/each}}
+        </div>
+    </div>
+    <!-- Category Widget END -->
+
+
+    <!-- Latest Posts Widget -->
+    <div class="widget">
+        <h3 class="mb-3">Latest Posts</h3>
+        {{#each (limit posts 3)}}
+        <!-- Single Post Widget -->
+        <div class="widget-post">
+            <a href="/posts/{{_id}}"><img src="{{post_image}}" class="img-fluid">{{title}}</a>
+            <ul class="blog-meta">
+                <li>{{generateDate date 'MMM DD YYYY'}}</li>
+            </ul>
+        </div>
+        <!-- Single Post Widget END -->
+        {{/each}}
+    </div>
+    <!-- Latest Posts Widget END -->
+</aside>

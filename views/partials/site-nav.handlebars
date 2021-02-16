@@ -1,0 +1,35 @@
+<!-- Navigation -->
+<nav class="navbar navbar-container navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">NodeDemo</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            MENU <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item"><a href="/" class="nav-link {{#if pathHome}} active {{/if}}">Home</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link {{#if pathAbout}} active {{/if}}">About</a></li>
+                <li class="nav-item"><a href="/blog" class="nav-link {{#if pathBlog}} active {{/if}}">Blog</a></li>
+                {{#if displayLink}}
+                <li class="nav-item"><a href="/posts/new" class="nav-link {{#if pathPost}} active {{/if}}">Add Post</a></li>
+                {{/if}}
+                <li class="nav-item"><a href="/contact" class="nav-link {{#if pathContact}} active {{/if}}">Contact</a>
+                </li>
+                {{#if displayLink}}
+                <li class="nav-item"><a href="/admin" class="nav-link {{#if pathAdmin}} active {{/if}}">Admin</a></li>
+                {{/if}}
+                {{#unless displayLink}}
+                <li class="nav-item"><a href="/users/login" class="nav-link {{#if pathLogin}} active {{/if}}">Login</a>
+                </li>
+                <li class="nav-item"><a href="/users/register"
+                        class="nav-link {{#if pathRegister}} active {{/if}}">Register</a></li>
+                {{/unless}}
+                {{#if displayLink}}
+                <li class="nav-item"><a href="/users/logout" class="nav-link">Logout</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
